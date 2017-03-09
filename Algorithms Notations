@@ -1,0 +1,18 @@
+                                                    THE FIRST PART 
+                                                    
+I am going to provide some weekly updates about The Data Structures and Algorithms.
+The first content,goes as follows :)                                              
+What I am Going to tell you about the Asymptotic Notations of the Algorithms ..For eg.O(n),O(n^2)..You might have read it various places,
+but this is what makes sense.
+
+First I will tell you about the Algorithms,
+An Algorithm is basically a well defined steps/procedure that gives some output on some set of inputs.Eg:- to make a cup of coffee,
+In computer world like Sieve of Erastosthenes,Bellmann-Ford,Dijkstra's etc..
+
+Next Now ,when you have certain algorithms (let's take for an instance and we will learn it later) for counting the no of integers
+in a number.Then to decide exactly which will be the best algorithms,the asymptotic notations are used.
+
+Now the term "Asymptotic Notations" are the languages used to define the running time of an algorithm by analysing the input size (n) 
+and the running time (t).The asymptotic notations are of 
+
+Algorithm 1:-
