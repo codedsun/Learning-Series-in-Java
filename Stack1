@@ -1,0 +1,56 @@
+//Stack Interface has been in the same repo kindly copy that too..
+import java.io.*;
+public class Stack1<E> implements Stack<E>
+{
+   private int size;
+   private int top = -1;
+   private E stack[];
+   Stack1(int n)
+   {
+       stack=(E[])new Object[n];
+       size=n;
+    }
+    public E top()
+    {
+        return(stack[top]);
+    }
+   public int size()
+   {
+        return top;
+    }
+   public boolean isEmpty()
+   {
+       return top==-1;
+    }
+    public void push(E e)
+    {
+        if(top==size-1)
+        {
+            System.out.println("Stack Overflow");
+        }
+        else
+        {
+        stack[++top]=e;
+        size++;
+         }
+    }
+    public E pop()
+    {
+        if(top==-1)
+        {
+            System.out.println("Stack Underflow");
+            return null;
+        }
+        else{
+           E item=stack[top];
+           
+            top--;
+        return item;
+        }
+        
+    }
+    public void Print()
+    {
+        System.out.println(stack.length);
+    }
+}
