@@ -1,0 +1,58 @@
+//the list interface is in the same repo kindly chck it 
+import java.io.*;
+public class ArrayList<E> implements List<E>
+{
+  private int size=0;
+  private E[] data;
+  private int capacity=10;
+
+  ArrayList(int n)
+  {
+      data=(E[])new Object[n];
+  }
+  public int size(){return size;
+    }
+  public boolean isFirst()
+  {
+      return size==0;
+    }
+   public E get(int i)throws IndexOutOfBoundsException
+   {
+       checkSize(i,size);
+       return data[i];
+    }
+    public void add(E e,int i)throws IndexOutOfBoundsException
+    {
+        checkSize(i,size+1);
+        for(int k=size-1;k>=i;k++)
+        {
+            data[k+1]=data[k];
+        }
+        data[i]=e;
+        size++;
+    }
+    public E set(int i,E e)throws IndexOutOfBoundsException
+    {
+        checkSize(i,size);
+        E temp=data[i];
+        data[i]=e;
+        return temp;
+        
+    }
+    public E remove(int i)throws IndexOutOfBoundsException
+    {
+        checkSize(i,size);
+        E temp=data[i];
+        for(int k=i;k<size-1;k++)
+        {
+            data[k]=data[k+1];
+        }
+        data[size-1]=null;
+        size--;
+        return temp;
+    }
+    protected void checkSize(int i,int n)throws IndexOutOfBoundsException{
+    if((i<0)||(i>=n))throw new IndexOutOfBoundsException("Illegal Index:"+i);
+    }
+}
+ 
