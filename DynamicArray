@@ -1,0 +1,41 @@
+import java.io.*;
+import java.util.*;
+public class DynamicArray<E>
+{
+   private E data[];
+   private int size;
+   DynamicArray(int capacity)
+   {
+       data=(E[])new Object[capacity];
+       size=capacity;
+    }
+   protected void checkSize(int i,int n)throws IndexOutOfBoundsException{
+    if((i<0)||(i>=n))throw new IndexOutOfBoundsException("Illegal Index:"+i);
+    }
+   public void push(int i,E e) throws IndexOutOfBoundsException
+   {
+       try{
+       checkSize(i,size+1);
+      }
+      catch(IndexOutOfBoundsException a)
+      {
+       if(size==data.length)
+       {
+           resize(2*size);
+        }
+        data[i]=e;
+    }
+}
+    public void resize(int cap)
+    {
+        E temp[]=(E[])new Object[cap];
+        for(int k=0;k<data.length;k++)
+        {
+            temp[k]=data[k];
+        }
+        data=temp;
+    }
+}
+    
+   
+  
