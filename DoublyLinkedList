@@ -1,0 +1,89 @@
+import java.io.*;
+public class DoublyLinkedList<E>
+{
+   public static class Node<E>{
+       private E element;
+       private Node<E> prev;
+       private Node<E> next;
+       Node (E e,Node<E> prev,Node<E> next)
+       {
+           element=e;
+           prev=this.prev;
+           next=this.next;
+        }
+       public E getElement(){return element;}
+       public Node<E> getPrev(){return prev;}
+       public Node<E> getNext(){return next;}
+       public void setNext(Node<E> p)
+       {
+           prev=p;
+        }
+       public void setPrev(Node<E> np)
+       {
+           next=np;
+        }
+    }
+    
+        private Node<E> header=null;
+        private Node<E> trailer=null;
+        private int size=0;
+        public DoublyLinkedList()
+        {
+            header=new Node(null,null,trailer);
+            trailer=new Node(null,header,null);
+        }
+        public int size(){
+            return size;
+        }
+        public boolean isEmpty(){
+            return size==0;
+        }
+        public E first(){
+            if(isEmpty())return null;
+            else
+            return header.getNext().getElement();
+        }
+       public E last(){
+           if(isEmpty())return null
+           ;
+           else
+           return trailer.getPrev().getElement();
+        }
+        public void addFirst(E e)
+        {
+            Node<E> e1=new Node(e,header,header.getNext());
+           header.setNext(e1);
+           header.getNext().setPrev(e1);
+        }
+        public void addLast(E e)
+        {
+            Node<E> n=new Node(e,trailer.getPrev(),trailer);
+            trailer.setPrev(n);
+            
+        }
+        public E removeFirst()
+        {
+            if(isEmpty())return null;
+            else return(remove(header.getNext()));
+        }
+        public E removeLast()
+        {
+            if(isEmpty())return null;
+            else return (remove(trailer.getPrev()));
+        }
+        public E remove(Node<E> node)
+        {
+            Node<E> prev=node.getPrev();
+            Node<E> next=node.getNext();
+            E i=node.getElement();
+            prev.setNext(next);
+            next.setPrev(prev);
+            return i;
+        }
+    }
+        
+
+            
+              
+           
+        
