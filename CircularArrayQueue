@@ -1,0 +1,48 @@
+//the queue interface is in the same repository,Kindly add those as this class uses that interface
+import java.io.*;
+class CircularArrayQueue<E> implements Queue<E>
+{
+    private int sz=0;
+    private E data[];
+    private int f=0;
+    CircularArrayQueue(int s)
+    {
+        data=(E[])new Object[s];
+    }
+    public int size(){return sz;
+    }
+    public boolean isEmpty()
+    {
+        return sz==0;
+    }
+    public void enqueue(E e) throws IllegalStateException 
+    {
+        if(sz==data.length) throw new IllegalStateException("Queue is full");
+        int h=(f+sz)%data.length;
+        data[h]=e;
+        sz++;
+        
+    }
+    public E dequeue()
+    
+    {
+        if(isEmpty())return null;
+        else
+        {
+        E t=data[f];
+        data[f]=null;
+        f=(f+1)%data.length;
+        return t;
+    
+    }}
+    public E first()
+    {
+         return (data[f]);
+            }
+    public E last()
+    {
+        return (data[((f+sz)%data.length)]);
+    }
+    
+}
+    
